@@ -11,7 +11,7 @@ class DishDetail extends Component {
     renderDish(dish) {
         if (dish != null) {
             return (
-                <div key="{dish.id}" className="col-12 col-md-5 m-1">
+                <div key={dish.id} className="col-12 col-md-5 m-1">
                     <Card>
                         <CardImg
                             width="100%"
@@ -36,13 +36,13 @@ class DishDetail extends Component {
         if (comments != null) {
             const dishComments = comments.map((comment) => {
                 return (
-                    <li>
+                    <li key={comment.id}>
                         <p>"{comment.comment}"</p>
                         <p>
                             -- {comment.author} on{" "}
                             {new Intl.DateTimeFormat("en-US", {
                                 year: "numeric",
-                                month: "long",
+                                month: "short",
                                 day: "2-digit",
                             }).format(new Date(comment.date))}
                         </p>
@@ -62,13 +62,15 @@ class DishDetail extends Component {
     }
 
     render() {
-        const dish = this.props.selectedDish;
+        const dish = this.props.dish;
 
         if (dish != null) {
             return (
-                <div className="row">
-                    {this.renderDish(dish)}
-                    {this.renderComments(dish.comments)}
+                <div className="container">
+                    <div className="row">
+                        {this.renderDish(dish)}
+                        {this.renderComments(dish.comments)}
+                    </div>
                 </div>
             );
         }
