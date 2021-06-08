@@ -31,8 +31,8 @@ class Header extends Component {
         return (
             <React.Fragment>
                 <Navbar dark expand="md" toggleable={true}>
-                    <NavbarToggler onClick={this.toggleNav} />
                     <div className="container">
+                        <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/">
                             <img
                                 src="assets/images/logo.png"
@@ -46,7 +46,7 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
                                         <span className="fa fa-home">
-                                            {" "}
+                                            {"  "}
                                             Home
                                         </span>
                                     </NavLink>
@@ -54,7 +54,7 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink className="nav-link" to="/aboutus">
                                         <span className="fa fa-info">
-                                            {" "}
+                                            {"  "}
                                             About Us
                                         </span>
                                     </NavLink>
@@ -62,7 +62,7 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink className="nav-link" to="/menu">
                                         <span className="fa fa-list">
-                                            {" "}
+                                            {"  "}
                                             Menu
                                         </span>
                                     </NavLink>
@@ -73,7 +73,7 @@ class Header extends Component {
                                         to="/contactus"
                                     >
                                         <span className="fa fa-address-card">
-                                            {" "}
+                                            {"  "}
                                             Contact Us
                                         </span>
                                     </NavLink>
