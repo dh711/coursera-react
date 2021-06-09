@@ -13,7 +13,12 @@ function RenderLeader({ leader }) {
     return (
         <div className="col-12 mt-4" id={leader.id}>
             <Media left middle>
-                <Media object src={leader.image} alt={leader.name} />
+                <Media
+                    object
+                    src={leader.image}
+                    alt={leader.name}
+                    className="mb-4"
+                />
             </Media>
             <Media body>
                 <Media heading>
