@@ -46,7 +46,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleForm();
-        this.props.addComment(
+        this.props.postComment(
             this.props.dishId,
             values.rating,
             values.name,
@@ -195,7 +195,7 @@ function RenderComments(props) {
                 <ul className="list-unstyled">{dishComments}</ul>
                 <CommentForm
                     dishId={props.dishId}
-                    addComment={props.addComment}
+                    postComment={props.postComment}
                 />
             </div>
         );
@@ -246,7 +246,7 @@ const DishDetail = (props) => {
                     <RenderDish dish={props.dish} />
                     <RenderComments
                         comment={props.comment}
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         dishId={props.dish.id}
                     />
                 </div>
