@@ -176,10 +176,7 @@ function RenderDish({ dish }) {
 }
 
 function RenderComments(props) {
-    // console.log(comment);
-    // console.log(dishId);
-    // console.log(addComment);
-    console.log(props);
+    // console.log(props);
     if (props.comment != null) {
         const dishComments = props.comment.map((comment) => {
             return (
