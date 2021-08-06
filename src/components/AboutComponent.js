@@ -10,32 +10,39 @@ import {
 import { Link } from "react-router-dom";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
+import { Stagger, Fade } from "react-animation-components";
 
 function RenderLeader({ leader }) {
     return (
         <div className="col-12 mt-4" id={leader.id}>
-            <Media left middle>
-                <Media
-                    object
-                    src={baseUrl + leader.image}
-                    alt={leader.name}
-                    className="mb-4"
-                />
-            </Media>
-            <Media body>
-                <Media heading>
-                    <strong>{leader.name}</strong>
+            <Fade in>
+                <Media left middle>
+                    <Media
+                        object
+                        src={baseUrl + leader.image}
+                        alt={leader.name}
+                        className="mb-4"
+                    />
                 </Media>
-                <h6>{leader.designation}</h6>
-                <p>{leader.description}</p>
-            </Media>
+                <Media body>
+                    <Media heading>
+                        <strong>{leader.name}</strong>
+                    </Media>
+                    <h6>{leader.designation}</h6>
+                    <p>{leader.description}</p>
+                </Media>
+            </Fade>
         </div>
     );
 }
 
 function About(props) {
     const leaders = props.leaders.leaders.map((leader) => {
-        return <RenderLeader leader={leader} />;
+        return (
+            <Stagger in>
+                <RenderLeader leader={leader} />
+            </Stagger>
+        );
     });
 
     if (props.isLoading) {

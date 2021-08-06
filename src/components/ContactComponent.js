@@ -25,8 +25,16 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log("Current state is:" + JSON.stringify(values));
         alert("Current state is: " + JSON.stringify(values));
+        this.props.postFeedback(
+            values.firstname,
+            values.lastname,
+            values.telnum,
+            values.email,
+            values.agree,
+            values.contactType,
+            values.message
+        );
         this.props.resetFeedbackForm();
     }
 
@@ -69,7 +77,7 @@ class Contact extends Component {
                         </address>
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
-                        <h5>Map of our Location</h5>
+                        <h5></h5>
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">

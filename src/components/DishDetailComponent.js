@@ -180,26 +180,28 @@ function RenderComments(props) {
     if (props.comment != null) {
         const dishComments = props.comment.map((comment) => {
             return (
-                <li key={comment.id}>
-                    <p>"{comment.comment}"</p>
-                    <p>
-                        -- {comment.author} on{" "}
-                        {new Intl.DateTimeFormat("en-US", {
-                            year: "numeric",
-                            month: "short",
-                            day: "2-digit",
-                        }).format(new Date(comment.date))}
-                    </p>
-                </li>
+                <Stagger in>
+                    <Fade in>
+                        <li key={comment.id}>
+                            <p>"{comment.comment}"</p>
+                            <p>
+                                -- {comment.author} on{" "}
+                                {new Intl.DateTimeFormat("en-US", {
+                                    year: "numeric",
+                                    month: "short",
+                                    day: "2-digit",
+                                }).format(new Date(comment.date))}
+                            </p>
+                        </li>
+                    </Fade>
+                </Stagger>
             );
         });
 
         return (
             <div className="col-12 col-md-6">
                 <h4>Comments</h4>
-                <Stagger in>
-                    <ul className="list-unstyled">{dishComments}</ul>
-                </Stagger>
+                <ul className="list-unstyled">{dishComments}</ul>
 
                 <CommentForm
                     dishId={props.dishId}
